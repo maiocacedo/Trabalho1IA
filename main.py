@@ -3,6 +3,7 @@ from mapas.leitor_mapa import carregar_mapa
 from algoritmos import largura, profundidade, gulosa, a_estrela
 from visualizacao.animacao import animar_rota, imprimir_mapa_estatico, salvar_print_arquivo, limpar_tela
 
+# Função principal do sistema de navegação inteligente, com  menu e diversas opções.
 def main():
     print("=== Sistema de Navegação Inteligente ===")
     mapa, agente, recompensas = carregar_mapa('mapa_teste.txt')

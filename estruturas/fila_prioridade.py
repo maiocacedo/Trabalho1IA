@@ -1,7 +1,7 @@
 import heapq
 import itertools
 
-# Fila de prioridade usando heapq para garantir que o item com a menor prioridade seja sempre extraído primeiro.
+# Fila de prioridade usando heapq (nativo) para garantir que o item com a menor prioridade seja sempre extraído primeiro.
 class FilaPrioridade:
     def __init__(self):
         self.elementos = []

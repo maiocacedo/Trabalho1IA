@@ -1,6 +1,6 @@
 from collections import deque
 
-# Fila simples usando deque para operações eficientes de enfileiramento e desenfileiramento.
+# Fila simples usando deque (nativo) para operações eficientes de enfileiramento e desenfileiramento.
 class Fila:
     def __init__(self):
         self.itens = deque()

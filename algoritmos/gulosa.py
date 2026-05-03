@@ -16,10 +16,10 @@ def executar(mapa, inicio, destino, todas_recompensas, modo_visual=False):
     visitados_coords = set()
     
     while not fila.esta_vazia():
-        atual, caminho, custo_real_acumulado, rec_restantes = fila.extrair_minimo()
+        atual, caminho, custo_real_acumulado, recompensas_restantes = fila.extrair_minimo()
         nos_expandidos += 1
         
-        est_visitado = (atual, rec_restantes)
+        est_visitado = (atual, recompensas_restantes)
         if est_visitado in visitados: 
             continue
             
@@ -27,31 +27,30 @@ def executar(mapa, inicio, destino, todas_recompensas, modo_visual=False):
         visitados_coords.add(atual)
         
         if modo_visual:
-             h_atual_display = heuristica_dinamica(atual, destino, rec_restantes)
-             rec_pegas_ramo = [r for r in todas_recompensas if r not in rec_restantes]
+             h_atual_display = heuristica_dinamica(atual, destino, recompensas_restantes)
+             rec_pegas_ramo = [r for r in todas_recompensas if r not in recompensas_restantes]
              
              dados_visualizacao = {
-                'g': custo_real_acumulado, # Mostramos o custo real que ficou para trás
+                'g': custo_real_acumulado, 
                 'h': h_atual_display,
-                'f': h_atual_display, # Na gulosa, f(n) = h(n)
+                'f': h_atual_display, 
                 'recompensas': rec_pegas_ramo
              }
              animar_busca_tempo_real(mapa, atual, visitados_coords, dados_estado=dados_visualizacao)
         
         if atual == destino:
-            rec_pegas = [r for r in todas_recompensas if r not in rec_restantes]
+            rec_pegas = [r for r in todas_recompensas if r not in recompensas_restantes]
             return caminho, custo_real_acumulado, nos_expandidos, rec_pegas
             
         for viz, custo_mov in obter_vizinhos_validos(mapa, atual[0], atual[1]):
             novo_custo_real = custo_real_acumulado + custo_mov
             
-            novas_rec = list(rec_restantes)
-            if viz in novas_rec: 
-                novas_rec.remove(viz)
-            novas_rec_tuple = tuple(novas_rec)
+            novas_recompensas = list(recompensas_restantes)
+            if viz in novas_recompensas: 
+                novas_recompensas.remove(viz)
+            novas_recompensas_tuple = tuple(novas_recompensas)
             
-            # Na gulosa, a prioridade é SÓ a heurística
-            h_viz = heuristica_dinamica(viz, destino, novas_rec_tuple)
-            fila.inserir((viz, caminho + [viz], novo_custo_real, novas_rec_tuple), h_viz)
+            h_viz = heuristica_dinamica(viz, destino, novas_recompensas_tuple)
+            fila.inserir((viz, caminho + [viz], novo_custo_real, novas_recompensas_tuple), h_viz)
                                  
     return None, 0, nos_expandidos, []

@@ -2,6 +2,7 @@ from estruturas.pilha import Pilha
 from estruturas.operacoes_mapa import obter_vizinhos_validos
 from visualizacao.animacao import animar_busca_tempo_real
 
+# Função principal do algoritmo de Busca em Profundidade para encontrar o caminho mais curto do início ao destino, coletando recompensas no caminho.
 def executar(mapa, inicio, destino, modo_visual=False):
     pilha = Pilha()
     pilha.empilhar((inicio, [inicio], 0))
