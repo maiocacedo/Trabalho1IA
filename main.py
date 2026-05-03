@@ -24,7 +24,7 @@ def main():
         print("Digite 1 para continuar e 0 para encerrar o sistema.")
         escolha = input("Escolha: ")
         if escolha == '0':
-            print("Encerrando o sistema..."); saida_total = True; time.sleep(2); break;
+            print("Encerrando o sistema..."); saida_total = True; time.sleep(3); break;
 
         print("\nDigite as coordenadas do destino (X Y) ou -1 -1 para encerrar:")
         
@@ -33,16 +33,16 @@ def main():
             dest_y = int(input("Digite a coordenada de destino Y: "))
             
             if dest_x == -1 and dest_y == -1:
-                print("Encerrando o sistema..."); saida_total = True; time.sleep(2); break; 
+                print("Encerrando o sistema..."); saida_total = True; time.sleep(3); break; 
             
             destino = (dest_x, dest_y)
         except ValueError:
-            print("Entrada inválida. Digite números inteiros."); time.sleep(2); continue; 
+            print("Entrada inválida. Digite números inteiros."); time.sleep(3); continue; 
 
         if destino[0] >= len(mapa[0]) or destino[1] >= len(mapa) or destino[0] < 0 or destino[1] < 0:
-            print(f"Coordenadas fora dos limites do mapa, digite dentro dos limites ({len(mapa[0]) - 1}x{len(mapa) - 1}).");time.sleep(2); continue; 
+            print(f"Coordenadas fora dos limites do mapa, digite dentro dos limites ({len(mapa[0]) - 1}x{len(mapa) - 1}).");time.sleep(3); continue; 
         if mapa[destino[1]][destino[0]] == '▓':
-            print("O destino é uma parede. Encerrando a Busca...\n\n");time.sleep(2); continue; 
+            print("O destino é uma parede. Encerrando a Busca...\n\n");time.sleep(3); continue; 
 
         print("\nComo deseja executar?")
         print("1 - Modo Comparativo (Executar todos os algoritmos e comparar resultados)")
@@ -90,10 +90,10 @@ def main():
             
             print(f"[{nome}]\tStatus: {status} | Custo: {custo} | Passos: {len(caminho) if caminho else 0}")
             print(f"\tExpandidos: {expandidos} | Tempo: {tempo:.6f}s | Rec. Pegas: {len(rec_pegas)} \n -- \n")
-        time.sleep(5)
+        time.sleep(7)
         saida = False
         while saida == False:
-            time.sleep(2)
+            time.sleep(3)
             limpar_tela()
             
             print("\nO que deseja fazer com as rotas encontradas?")

@@ -92,7 +92,7 @@ def animar_rota(mapa_matriz, caminho, recompensas_coletadas, destino_final):
             print(f"Custo Final da Rota: {custo_acumulado}")
             print(f"Total de Recompensas: {recompensas_pegas_ate_agora}")
         
-        time.sleep(0.3)
+        time.sleep(0.5)
         
         mapa_animacao[y][x] = '.' if pos_anterior == '$' else pos_anterior
         
@@ -109,7 +109,7 @@ def imprimir_mapa_estatico(mapa_matriz, caminho, titulo="Estado do Mapa"):
     print(f"\n--- {titulo} ---")
     for linha in mapa_print: print("".join(linha))
     print("--- Fim do Mapa ---\n")
-    time.sleep(5)
+    time.sleep(7)
 
 def salvar_print_arquivo(mapa_matriz, caminho, nome_arquivo="resultado_rota.txt"):
     if not caminho: return
