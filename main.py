@@ -83,8 +83,8 @@ def main():
             caminho, custo, expandidos, rec_pegas, tempo = dados
             status = "Alcançado" if caminho else "Sem Solução"
             
-            if nome == '1': nome = "BFS"
-            elif nome == '2': nome = "DFS"
+            if nome == '1': nome = "BFS(Largura)"
+            elif nome == '2': nome = "DFS(Profundidade)"
             elif nome == '3': nome = "Gulosa"
             elif nome == '4': nome = "A*"
             
@@ -99,13 +99,13 @@ def main():
             print("\nO que deseja fazer com as rotas encontradas?")
             print("1 - Animar rota final do agente")
             print("2 - Mostrar Último Estado no terminal")
-            print("3 - Salvar print em arquivo .txt")
+            print("3 - Salvar Estado final em arquivo .txt")
             print("0 - Sair para o menu principal")
             
             opcao_pos = input("\nEscolha: ")
             if opcao_pos == '0': print("Retornando ao menu principal..."); saida = True; continue;
             if opcao_pos in ['1', '2', '3']:
-                escolha = input("Qual algoritmo? (BFS(1) | DFS(2) | Gulosa(3) | A*(4)): ")
+                escolha = input("Qual algoritmo? (BFS - Largura(1) | DFS - Profundidade(2) | Gulosa(3) | A* - Estrela(4)): ")
                 if escolha in resultados:
                     escolha_caminho = resultados[escolha][0]
                     recompensas_esc = resultados[escolha][3]
