@@ -31,12 +31,20 @@ Onde estão as animações do mapa e a rota realizada pelo agente
 
 # Função Heurística adotada
 
-A função é dinâmica e ajusta a estimativa com base na proximidade de recompensas disponíveis.
+A função é dinâmica e ajusta a estimativa com base na proximidade de recompensas disponíveis e do destino.
+
 $$h(n) = \max(0, D(n, destino)-B(n, recompensas))$$
-onde,
+
+onde, 
+
+
 $$D(n, destino)=|x_{n}-x_{destino}|+|y_{n}-y_{destino}|$$
+
+
 $$B(n, recompensas)=\frac{15}{d_{prox}+1}$$
 
 D representa a distância entre o agente e o destino.
-B utilizada para que o agente analise a recompensa mais próxima. O número 15 representa uma constante de calibração, age como um peso. Valor escolhido com base nos custos, para que aja equilibrio.
+
+B utilizada para que o agente analise a recompensa mais próxima. 
+O número 15 representa uma constante de calibração, age como um peso. Valor escolhido com base nos custos, para que aja equilibrio.
 
