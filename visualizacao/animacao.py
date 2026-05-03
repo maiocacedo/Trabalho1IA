@@ -91,8 +91,9 @@ def animar_rota(mapa_matriz, caminho, recompensas_coletadas, destino_final):
             print("\n=== DESTINO FINAL ALCANÇADO! ===")
             print(f"Custo Final da Rota: {custo_acumulado}")
             print(f"Total de Recompensas: {recompensas_pegas_ate_agora}")
+            print(f"Passos para Chegar: {passo + 1}")
         
-        time.sleep(0.5)
+        time.sleep(3)
         
         mapa_animacao[y][x] = '.' if pos_anterior == '$' else pos_anterior
         
